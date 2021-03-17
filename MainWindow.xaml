@@ -1,0 +1,37 @@
+﻿<syncfusion:ChromelessWindow x:Class="ComboBoxColumnsDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:ComboBoxColumnsDemo"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        Icon="App.ico"
+        WindowStartupLocation="CenterScreen"
+        Title="ComboBox Column">
+    
+    <syncfusion:ChromelessWindow.Resources>
+        <local:ViewModel x:Key="viewModel"/>
+    </syncfusion:ChromelessWindow.Resources>
+    <Grid DataContext="{StaticResource viewModel}">
+        <syncfusion:SfDataGrid x:Name="sfdatagrid"
+                               Margin="5"
+                               AllowEditing="True"
+                               AutoGenerateColumns="False"
+                               AllowFiltering="True"
+                               AllowSorting="True"
+                               ItemsSource="{Binding OrderDetails}"
+                               ColumnSizer="Star"
+                               FilterItemsPopulated="DataGrid_FilterItemsPopulated">
+            <syncfusion:SfDataGrid.Columns>
+                <syncfusion:GridTextColumn MappingName="OrderID" HeaderText="Order ID" />
+                <syncfusion:GridTextColumn MappingName="CustomerID" HeaderText="Customer ID" />
+                <syncfusion:GridTextColumn MappingName="ProductName" HeaderText="Product Name" />
+                <syncfusion:GridTextColumn MappingName="NoOfOrders"  HeaderText="No Of Orders" />
+                <syncfusion:GridComboBoxColumn  HeaderText="Ship City" 
+                                                DisplayMemberPath="ShipCityName" 
+                                                MappingName="ShipCityID" 
+                                                SelectedValuePath="ShipCityID" 
+                                                SortMode="Display" 
+                                                ItemsSource="{Binding Path=CityList, Source={StaticResource viewModel}}"/>
+            </syncfusion:SfDataGrid.Columns>
+        </syncfusion:SfDataGrid>
+    </Grid>
+</syncfusion:ChromelessWindow>
