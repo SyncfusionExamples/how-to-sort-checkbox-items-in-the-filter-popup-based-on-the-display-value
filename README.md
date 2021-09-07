@@ -54,5 +54,7 @@ public class FilterElementComparer : IComparer<FilterElement>
 
 ![Custom Sorting for Filter Elements](FilterElement_CustomSort.png)
 
+KB article - [How to sort checkbox items in the FilterPopup based on the DisplayValue?](https://www.syncfusion.com/kb/12499/how-to-sort-checkbox-items-in-the-filterpopup-based-on-the-displayvalue)
+
 ## Requirements to run the demo
 Visual Studio 2015 and above versions
